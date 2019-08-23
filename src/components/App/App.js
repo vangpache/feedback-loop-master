@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
+import { connect } from 'redux';
 
 class App extends Component {
   render() {
@@ -16,4 +17,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export connect () (default) App;
