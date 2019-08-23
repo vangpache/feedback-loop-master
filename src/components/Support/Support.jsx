@@ -8,7 +8,7 @@ class Support extends Component {
 
         return (
             <div>
-
+                <h1>SUPPORT</h1>
             </div>
         )
     }
