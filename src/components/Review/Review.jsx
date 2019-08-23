@@ -13,7 +13,13 @@ class Review extends Component {
         return (
             <div>
                 <h1>REVIEW</h1>
-                <button onClick={this.handleClick}>NEXT</button>
+                <div>
+                    <h3>Feelings:</h3>
+                    <h3>Understanding:</h3>
+                    <h3>Support:</h3>
+                    <h3>Comments:</h3>
+                </div>
+                <button onClick={this.handleClick}>SUBMIT REVIEW</button>
             </div>
         )
     }

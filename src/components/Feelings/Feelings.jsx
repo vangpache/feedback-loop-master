@@ -14,6 +14,14 @@ class Feelings extends Component {
         return (
             <div>
                 <h1>FEELINGS</h1>
+                <h3>How are you feeling today?</h3>
+                <input className="radioBtn" type="radio"/> 1
+                <input className="radioBtn"  type="radio" /> 2
+                <input className="radioBtn"  type="radio" /> 3
+                <input className="radioBtn"  type="radio" /> 4
+                <input className="radioBtn"  type="radio" /> 5
+                <br/>
+                <br />
                 <button onClick={this.handleClick}>NEXT</button>
             </div>
         )

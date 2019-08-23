@@ -13,7 +13,14 @@ class Comments extends Component {
         return (
             <div>
                 <h1>COMMENTS</h1>
-                <button onClick={this.handleClick}>NEXT</button>
+                <h3>Any comments you want to leave:</h3>
+                <form>
+                    <input size="100" type="text" placeholder="Type comments Here" />
+                    <br />
+                    <br />
+                    <button onClick={this.handleClick}>NEXT</button>
+                </form>
+                
             </div>
         )
     }
