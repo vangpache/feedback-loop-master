@@ -37,8 +37,7 @@ class Feelings extends Component {
 
     handleClick = (event) => {
         event.preventDefault();
-        //SEE KOALA ALERT
-        if(this.state === '') {
+        if(this.state.feeling === '') {
             alert('Please select a rating')
         } else {
             this.props.dispatch({

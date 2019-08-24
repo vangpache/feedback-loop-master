@@ -10,7 +10,7 @@ class Understanding extends Component {
 
 
     handleRadio = (event) => {
-        
+
         if (event.target.value === '1') {
             return this.setState({
                 understanding: event.target.value
@@ -38,11 +38,15 @@ class Understanding extends Component {
 
     handleClick = (event) => {
         event.preventDefault();
-        this.props.dispatch({
-            type: 'SET_UNDERSTANDING',
-            payload: this.state.understanding
-        })
-        this.props.history.push('/support')
+        if (this.state.understanding === '') {
+            alert('Please select a rating')
+        } else {
+            this.props.dispatch({
+                type: 'SET_UNDERSTANDING',
+                payload: this.state.understanding
+            })
+            this.props.history.push('/support')
+        }
     }
 
 
@@ -55,7 +59,7 @@ class Understanding extends Component {
                 <h1>UNDERSTANDING</h1>
                 <form onSubmit={this.handleClick}>
                     <h3>How well are you understanding the content?</h3>
-                <input onClick={this.handleRadio} className="radioBtn" type="radio" name="understanding" value="1" /> 1
+                    <input onClick={this.handleRadio} className="radioBtn" type="radio" name="understanding" value="1" /> 1
                 <input onClick={this.handleRadio} className="radioBtn" type="radio" name="understanding" value="2" /> 2
                 <input onClick={this.handleRadio} className="radioBtn" type="radio" name="understanding" value="3" /> 3
                 <input onClick={this.handleRadio} className="radioBtn" type="radio" name="understanding" value="4" /> 4
@@ -64,7 +68,7 @@ class Understanding extends Component {
                     <br />
                     <button>NEXT</button>
                 </form>
-                
+
             </div>
         )
     }
@@ -73,4 +77,4 @@ class Understanding extends Component {
 
 
 
-export default connect() (Understanding);
+export default connect()(Understanding);

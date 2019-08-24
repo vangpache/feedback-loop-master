@@ -39,11 +39,15 @@ class Support extends Component {
 
     handleClick = (event) => {
         event.preventDefault();
-        this.props.dispatch({
-            type: 'SET_SUPPORT',
-            payload: this.state.support
-        })
-        this.props.history.push('/comments')
+        if (this.state.support === '') {
+            alert('Please select a rating')
+        } else {
+            this.props.dispatch({
+                type: 'SET_SUPPORT',
+                payload: this.state.support
+            })
+            this.props.history.push('/comments')
+        }
     }
 
     render() {
@@ -54,7 +58,7 @@ class Support extends Component {
                 <h1>SUPPORT</h1>
                 <h3>How well are you being supported?</h3>
                 <form onSubmit={this.handleClick}>
-                <input onClick={this.handleRadio} className="radioBtn" type="radio" name="support" value="1" /> 1
+                    <input onClick={this.handleRadio} className="radioBtn" type="radio" name="support" value="1" /> 1
                 <input onClick={this.handleRadio} className="radioBtn" type="radio" name="support" value="2" /> 2
                 <input onClick={this.handleRadio} className="radioBtn" type="radio" name="support" value="3" /> 3
                 <input onClick={this.handleRadio} className="radioBtn" type="radio" name="support" value="4" /> 4
@@ -63,7 +67,7 @@ class Support extends Component {
                     <br />
                     <button>NEXT</button>
                 </form>
-                
+
             </div>
         )
     }
@@ -72,4 +76,4 @@ class Support extends Component {
 
 
 
-export default connect () (Support);
+export default connect()(Support);
