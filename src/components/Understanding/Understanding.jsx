@@ -53,16 +53,16 @@ class Understanding extends Component {
         return (
             <div>
                 <h1>UNDERSTANDING</h1>
-                <form >
+                <form onSubmit={this.handleClick}>
                     <h3>How well are you understanding the content?</h3>
-                <input onClick={this.handleRadio} className="radioBtn" type="radio" name="feeling" value="1" /> 1
-                <input onClick={this.handleRadio} className="radioBtn" type="radio" name="feeling" value="2" /> 2
-                <input onClick={this.handleRadio} className="radioBtn" type="radio" name="feeling" value="3" /> 3
-                <input onClick={this.handleRadio} className="radioBtn" type="radio" name="feeling" value="4" /> 4
-                <input onClick={this.handleRadio} className="radioBtn" type="radio" name="feeling" value="5" /> 5
+                <input onClick={this.handleRadio} className="radioBtn" type="radio" name="understanding" value="1" /> 1
+                <input onClick={this.handleRadio} className="radioBtn" type="radio" name="understanding" value="2" /> 2
+                <input onClick={this.handleRadio} className="radioBtn" type="radio" name="understanding" value="3" /> 3
+                <input onClick={this.handleRadio} className="radioBtn" type="radio" name="understanding" value="4" /> 4
+                <input onClick={this.handleRadio} className="radioBtn" type="radio" name="understanding" value="5" /> 5
                 <br />
                     <br />
-                    <button onClick={this.handleClick}>NEXT</button>
+                    <button>NEXT</button>
                 </form>
                 
             </div>

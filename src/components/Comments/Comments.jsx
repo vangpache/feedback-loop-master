@@ -1,9 +1,23 @@
 import React, { Component } from 'react';
-
+import { connect } from 'react-redux';
 
 class Comments extends Component {
 
-    handleClick = () => {
+    state = {
+        comments: ''
+    }
+
+    handleChange = (event) => {
+        this.setState ({
+            comments: event.target.value
+        })
+    }
+
+    handleClick = (event) => {
+        this.props.dispatch ({
+            type: 'SET_COMMENTS',
+            payload: this.state.comments
+        })
         this.props.history.push('/review')
     }
 
@@ -14,19 +28,28 @@ class Comments extends Component {
             <div>
                 <h1>COMMENTS</h1>
                 <h3>Any comments you want to leave:</h3>
-                <form>
-                    <input size="100" type="text" placeholder="Type comments Here" />
+                <form onSubmit={this.handleClick}>
+                    <input size="100" type="text" placeholder="Type comments Here" onChange={this.handleChange}/>
                     <br />
                     <br />
-                    <button onClick={this.handleClick}>NEXT</button>
+                    <button>NEXT</button>
+                    
                 </form>
+               
                 
             </div>
         )
     }
 }
 
+// const mapToProps = reduxStore => {
+//     return {
+//         reduxStore
+//     }
+// }
 
 
+// export default connect(mapToProps)(Comments);
 
-export default Comments;
+
+export default connect () (Comments);
