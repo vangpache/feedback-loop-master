@@ -1,14 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
+
 import Button from '@material-ui/core/Button';
 
+import 'typeface-roboto';
+
+import {Delete} from '@material-ui/icons';
+
+
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
 
 
 class Admin extends Component {
-componentDidMount() {
-    this.getFeedback();
-}
+    componentDidMount() {
+        this.getFeedback();
+    }
 
 
     getFeedback = () => {
@@ -28,16 +40,16 @@ componentDidMount() {
 
     handleDelete = (id) => {
         console.log('delete button clicked');
-        console.log({id});
-        
+        console.log({ id });
+
         //PUT 
         axios.delete(`/feedback/${id}`)
-        .then((response) => {
-            console.log('in DELETE:', response);
-            this.getFeedback();
-        }).catch((error) => {
-            console.log('in DELETE error:', error);
-        })
+            .then((response) => {
+                console.log('in DELETE:', response);
+                this.getFeedback();
+            }).catch((error) => {
+                console.log('in DELETE error:', error);
+            })
     }
 
 
@@ -45,43 +57,51 @@ componentDidMount() {
 
     render() {
 
-        
 
-        let feedback = this.props.reduxStore.getAllFeedBack.map (each => {
-                return (
-                    <tr key={each.id}>
-                        <td>{each.feeling}</td>
-                        <td>{each.understanding}</td>
-                        <td>{each.support}</td>
-                        <td>{each.comments}</td>
-                        <td><Button onClick={() => this.handleDelete(each.id)} variant="outlined" color="secondary">Delete</Button></td>
-                    </tr>
-                )
-            })   
-        
+      
+
+        let feedback = this.props.reduxStore.getAllFeedBack.map(each => {
+            return (
+                <TableRow key={each.id}>
+                    <TableCell>{each.feeling}</TableCell>
+                    <TableCell>{each.understanding}</TableCell>
+                    <TableCell>{each.support}</TableCell>
+                    <TableCell>{each.comments}</TableCell>
+                    <TableCell><Button onClick={() => this.handleDelete(each.id)} variant="outlined" color="secondary"><Delete /></Button></TableCell>
+                </TableRow>
+            )
+        })
+
 
 
         return (
 
             <div>
-                <h1>ADMIN: FEEDBACK RESULZZZT</h1>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Feeling</th>
-                            <th>Comprehension</th>
-                            <th>Support</th>
-                            <th>Comments</th>
-                            <th>Delete</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {feedback}
-                    </tbody>
-                    <tfoot>
 
-                    </tfoot>
-                </table>
+                <div className="adminHeadingDiv">
+                    <h1>ADMIN VIEW: STUDENT FEEDBACK</h1>
+                </div>
+                
+                <div className="adminTableDiv">
+                    <Paper>
+                        <Table>
+                            <TableHead>
+                                <TableRow>
+                                    <TableCell>Feeling</TableCell>
+                                    <TableCell>Comprehension</TableCell>
+                                    <TableCell>Support</TableCell>
+                                    <TableCell>Comments</TableCell>
+                                    <TableCell>Delete</TableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                                {feedback}
+                            </TableBody>
+                        </Table>
+                    </Paper>
+                </div>
+               
+    
                 {/* {JSON.stringify(this.props.reduxStore.getAllFeedBack)} */}
                 {/* {JSON.stringify(this.state.collection)} */}
             </div>
@@ -97,4 +117,4 @@ const mapsToProps = (reduxStore) => {
 }
 
 
-export default connect(mapsToProps) (Admin);
+export default connect(mapsToProps)(Admin);

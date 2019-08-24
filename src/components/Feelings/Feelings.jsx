@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import swal from 'sweetalert';
 import Button from '@material-ui/core/Button';
 
+import { Face } from '@material-ui/icons';
+
 
 
 class Feelings extends Component {
@@ -36,8 +38,9 @@ class Feelings extends Component {
 
         return (
             <div>
-                <h1>FEELINGS</h1>
+                <Face />
                 <h3>How are you feeling today?</h3>
+                
                 <form >
                 
                 <input onClick={this.handleRadio} className="radioBtn" type="radio" name="feeling" value="1"/> 1

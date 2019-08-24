@@ -25,3 +25,16 @@
   display: inline-block;
 }
 
+.adminHeadingDiv {
+  margin: auto;
+  margin-bottom: 50px;
+  padding: 20px;
+  width: 800px;
+  border-style: solid;
+  color: gray;
+}
+
+.adminTableDiv {
+  margin: auto;
+  width: 90%;
+}

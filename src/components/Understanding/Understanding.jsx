@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import swal from 'sweetalert';
 import Button from '@material-ui/core/Button';
 
+import { Computer } from '@material-ui/icons';
 
 class Understanding extends Component {
     state = {
@@ -44,8 +45,9 @@ class Understanding extends Component {
 
         return (
             <div>
-                <h1>UNDERSTANDING</h1>
+            
                 <form>
+                    <Computer />
                     <h3>How well are you understanding the content?</h3>
                     <input onClick={this.handleRadio} className="radioBtn" type="radio" name="understanding" value="1" /> 1
                 <input onClick={this.handleRadio} className="radioBtn" type="radio" name="understanding" value="2" /> 2

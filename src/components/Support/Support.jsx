@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import swal from 'sweetalert';
 import Button from '@material-ui/core/Button';
+import { Group } from '@material-ui/icons';
 
 
 class Support extends Component {
@@ -40,7 +41,8 @@ class Support extends Component {
 
         return (
             <div>
-                <h1>SUPPORT</h1>
+                <Group />
+                
                 <h3>How well are you being supported?</h3>
                 <form>
                     <input onClick={this.handleRadio} className="radioBtn" type="radio" name="support" value="1" /> 1

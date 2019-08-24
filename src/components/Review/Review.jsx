@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import Button from '@material-ui/core/Button';
+import { DoneOutline } from '@material-ui/icons';
 
 class Review extends Component {
 
@@ -26,12 +27,17 @@ class Review extends Component {
         this.props.history.push('/submission')
     }
 
+    handleBackButton = () => {
+        this.props.history.push('/comments')
+    }
+
     render() {
 
 
 
         return (
             <div>
+                <DoneOutline />
                 <h1>REVIEW</h1>
                 {/* {review} */}
                 <div>

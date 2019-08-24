@@ -11,6 +11,8 @@ import Review from '../Review/Review';
 import Submission from '../Submission/Submission';
 import Admin from '../Admin/Admin';
 
+import 'typeface-roboto';
+
 import { HashRouter as Router, Route } from 'react-router-dom';
 // import axios from 'axios';
 

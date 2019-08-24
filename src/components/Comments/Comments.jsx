@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
+import { Comment } from '@material-ui/icons';
 
 class Comments extends Component {
 
@@ -33,7 +34,7 @@ class Comments extends Component {
 
         return (
             <div>
-                <h1>COMMENTS</h1>
+                <Comment />
                 <h3>Any comments you want to leave:</h3>
                 <form >
                     <input size="100" type="text" placeholder="Type comments Here" onChange={this.handleChange}/>
