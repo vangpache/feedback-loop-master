@@ -16,27 +16,6 @@ import axios from 'axios';
 
 class App extends Component {
 
-  //component did mount + axios get function
-  componentDidMount() {
-    console.log('APP loading');
-    this.getFeedback();
-
-  }
-
-  getFeedback = () => {
-    console.log('in GET FEEDBACK function');
-    axios.get('/feedback')
-    .then((response) => {
-      console.log('in getFeedback:', response);
-      this.props.dispatch({
-        type: 'GET_FEEDBACK',
-        payload: response.data
-      })
-    }).catch((error) => {
-      console.log('in getFeedback ERROR:', error);
-    })
-  }
-
 
   render() {
     return (

@@ -21,6 +21,12 @@ class Comments extends Component {
         this.props.history.push('/review')
     }
 
+
+    handleBackButton = () => {
+        console.log('back button clicked');
+        this.props.history.push('/support')
+    }
+
     render() {
 
 
@@ -28,11 +34,12 @@ class Comments extends Component {
             <div>
                 <h1>COMMENTS</h1>
                 <h3>Any comments you want to leave:</h3>
-                <form onSubmit={this.handleClick}>
+                <form >
                     <input size="100" type="text" placeholder="Type comments Here" onChange={this.handleChange}/>
                     <br />
                     <br />
-                    <button>NEXT</button>
+                    <button onClick={this.handleBackButton}>GO BACK</button>
+                    <button onClick={this.handleClick}>NEXT</button>
                     
                 </form>
                
@@ -42,14 +49,6 @@ class Comments extends Component {
     }
 }
 
-// const mapToProps = reduxStore => {
-//     return {
-//         reduxStore
-//     }
-// }
-
-
-// export default connect(mapToProps)(Comments);
 
 
 export default connect () (Comments);

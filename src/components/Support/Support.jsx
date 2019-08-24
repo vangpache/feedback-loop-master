@@ -29,6 +29,11 @@ class Support extends Component {
         }
     }
 
+    handleBackButton = () => {
+        console.log('back button clicked');
+        this.props.history.push('/understanding')
+    }
+
     render() {
 
 
@@ -36,7 +41,7 @@ class Support extends Component {
             <div>
                 <h1>SUPPORT</h1>
                 <h3>How well are you being supported?</h3>
-                <form onSubmit={this.handleClick}>
+                <form>
                     <input onClick={this.handleRadio} className="radioBtn" type="radio" name="support" value="1" /> 1
                 <input onClick={this.handleRadio} className="radioBtn" type="radio" name="support" value="2" /> 2
                 <input onClick={this.handleRadio} className="radioBtn" type="radio" name="support" value="3" /> 3
@@ -44,7 +49,8 @@ class Support extends Component {
                 <input onClick={this.handleRadio} className="radioBtn" type="radio" name="support" value="5" /> 5
                 <br />
                     <br />
-                    <button>NEXT</button>
+                    <button onClick={this.handleBackButton}>GO BACK</button>
+                    <button onClick={this.handleClick}>NEXT</button>
                 </form>
 
             </div>

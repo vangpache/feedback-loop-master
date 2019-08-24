@@ -1,10 +1,32 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 
 
 class Admin extends Component {
+componentDidMount() {
+    this.getFeedback();
+}
 
+    getFeedback = () => {
+        console.log('in GET FEEDBACK function');
+        axios.get('/feedback')
+            .then((response) => {
+                console.log('in getFeedback:', response);
+                this.props.dispatch({
+                    type: 'GET_FEEDBACK',
+                    payload: response.data
+                })
+            }).catch((error) => {
+                console.log('in getFeedback ERROR:', error);
+            })
+    }
+
+    handleBackButton = () => {
+        console.log('back button clicked');
+        this.props.history.push('/comments')
+    }
 
 
     render() {
@@ -41,6 +63,9 @@ class Admin extends Component {
                     <tbody>
                         {feedback}
                     </tbody>
+                    <tfoot>
+
+                    </tfoot>
                 </table>
                 {/* {JSON.stringify(this.props.reduxStore.getAllFeedBack)} */}
             </div>

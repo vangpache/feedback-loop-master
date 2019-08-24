@@ -21,22 +21,8 @@ class Review extends Component {
             console.log('in client POST error:', error);
             
         })
-        this.getFeedback();
+        // this.getFeedback();
         this.props.history.push('/submission')
-    }
-
-    getFeedback = () => {
-        console.log('in GET FEEDBACK function');
-        axios.get('/feedback')
-            .then((response) => {
-                console.log('in getFeedback:', response);
-                this.props.dispatch({
-                    type: 'GET_FEEDBACK',
-                    payload: response.data
-                })
-            }).catch((error) => {
-                console.log('in getFeedback ERROR:', error);
-            })
     }
 
     render() {
@@ -53,6 +39,7 @@ class Review extends Component {
                     <h3 className="reviewh3">Support:</h3><span> {this.props.allFeedback.support}</span><br />
                     <h3 className="reviewh3">Comments:</h3><span> {this.props.allFeedback.comments}</span><br />
                 </div>
+                <button onClick={this.handleBackButton}>GO BACK</button>
                 <button onClick={this.handleClick}>SUBMIT REVIEW</button>
                 {/* {JSON.stringify(this.state)} */}
             </div>
