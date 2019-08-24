@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Button from '@material-ui/core/Button';
 
 class Comments extends Component {
 
@@ -38,8 +39,8 @@ class Comments extends Component {
                     <input size="100" type="text" placeholder="Type comments Here" onChange={this.handleChange}/>
                     <br />
                     <br />
-                    <button onClick={this.handleBackButton}>GO BACK</button>
-                    <button onClick={this.handleClick}>NEXT</button>
+                    <Button onClick={this.handleBackButton} variant="outlined" color="primary">GO BACK</Button>
+                    <Button onClick={this.handleClick} variant="outlined" color="primary">NEXT</Button>
                     
                 </form>
                

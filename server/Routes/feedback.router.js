@@ -39,6 +39,22 @@ router.get('/', (req, res) => {
     })
 })
 
+//DELETE
+router.delete('/:id', (req, res) => {
+    let idToUpdate = req.params.id
+    let queryText = `DELETE FROM feedback WHERE id = $1`
+    console.log('in Delete id:', idToUpdate);
+    
+    
+    pool.query(queryText, [idToUpdate])
+    .then((result) => {
+        console.log('in DELETE:', result);
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log('in DELETE ERROR:', error);
+        res.sendStatus(500);
+    })
+})
 
 
 

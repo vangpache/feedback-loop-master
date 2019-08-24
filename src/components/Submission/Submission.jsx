@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Button from '@material-ui/core/Button';
 
 
 class Submission extends Component {
@@ -15,7 +16,7 @@ class Submission extends Component {
             <div>
                 <h1>SUBMISSION</h1>
                 <h2>Thank You!</h2>
-                <button onClick={this.handleClick}>Leave New Feedback</button>
+                <Button onClick={this.handleClick} variant="outlined" color="primary">Leave New Feedback</Button>
             </div>
         )
     }

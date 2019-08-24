@@ -12,7 +12,7 @@ import Submission from '../Submission/Submission';
 import Admin from '../Admin/Admin';
 
 import { HashRouter as Router, Route } from 'react-router-dom';
-import axios from 'axios';
+// import axios from 'axios';
 
 class App extends Component {
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import swal from 'sweetalert';
+import Button from '@material-ui/core/Button';
 
 
 class Understanding extends Component {
@@ -53,8 +54,8 @@ class Understanding extends Component {
                 <input onClick={this.handleRadio} className="radioBtn" type="radio" name="understanding" value="5" /> 5
                 <br />
                     <br />
-                    <button onClick={this.handleBackButton}>GO BACK</button>
-                    <button onClick={this.handleClick}>NEXT</button>
+                    <Button onClick={this.handleBackButton} variant="outlined" color="primary">GO BACK</Button>
+                    <Button onClick={this.handleClick} variant="outlined" color="primary">NEXT</Button>
                 </form>
 
             </div>

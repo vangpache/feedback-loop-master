@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import swal from 'sweetalert';
+import Button from '@material-ui/core/Button';
+
 
 
 class Feelings extends Component {
@@ -36,7 +38,7 @@ class Feelings extends Component {
             <div>
                 <h1>FEELINGS</h1>
                 <h3>How are you feeling today?</h3>
-                <form onSubmit={this.handleClick}>
+                <form >
                 
                 <input onClick={this.handleRadio} className="radioBtn" type="radio" name="feeling" value="1"/> 1
                 <input onClick={this.handleRadio} className="radioBtn" type="radio" name="feeling" value="2"/> 2
@@ -45,7 +47,7 @@ class Feelings extends Component {
                 <input onClick={this.handleRadio} className="radioBtn" type="radio" value="5" /> 5
                 <br />
                     <br />
-                    <button>NEXT</button>
+                    <Button onClick={this.handleClick} variant="outlined" color="primary">NEXT</Button>
                 </form>
                 {/* {JSON.stringify(this.state)} */}
                 
