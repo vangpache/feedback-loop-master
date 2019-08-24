@@ -10,7 +10,7 @@ class Understanding extends Component {
 
 
     handleRadio = (event) => {
-        // event.preventDefault();
+        
         if (event.target.value === '1') {
             return this.setState({
                 understanding: event.target.value
@@ -36,7 +36,8 @@ class Understanding extends Component {
         }
     }
 
-    handleClick = () => {
+    handleClick = (event) => {
+        event.preventDefault();
         this.props.dispatch({
             type: 'SET_UNDERSTANDING',
             payload: this.state.understanding

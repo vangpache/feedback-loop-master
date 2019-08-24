@@ -10,9 +10,8 @@ class Feelings extends Component {
     }
 
 
-
     handleRadio = (event) => {
-        // event.preventDefault();
+        
         if (event.target.value === '1') {
             return this.setState({
                 feeling: event.target.value
@@ -33,17 +32,21 @@ class Feelings extends Component {
             return this.setState({
                 feeling: event.target.value
             });
-        } else {
-            alert('Please select a rating')
         }   
     }
 
-    handleClick = () => {
-        this.props.dispatch({
-            type: 'SET_FEELING',
-            payload: this.state.feeling
-        })
-        this.props.history.push('/understanding')
+    handleClick = (event) => {
+        event.preventDefault();
+        //SEE KOALA ALERT
+        if(this.state === '') {
+            alert('Please select a rating')
+        } else {
+            this.props.dispatch({
+                type: 'SET_FEELING',
+                payload: this.state.feeling
+            })
+            this.props.history.push('/understanding')
+        }
     }
 
     render() {
@@ -64,7 +67,7 @@ class Feelings extends Component {
                     <br />
                     <button>NEXT</button>
                 </form>
-                {/* {JSON.stringify(this.state)} */}
+                {JSON.stringify(this.state)}
                 
             </div>
         )
