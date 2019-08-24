@@ -14,7 +14,8 @@ class Submission extends Component {
         return (
             <div>
                 <h1>SUBMISSION</h1>
-                <button onClick={this.handleClick}>Enter New Feedback</button>
+                <h2>Thank You!</h2>
+                <button onClick={this.handleClick}>Leave New Feedback</button>
             </div>
         )
     }

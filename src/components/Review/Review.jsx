@@ -1,11 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 class Review extends Component {
 
-
+    state = {
+        feeling: this.props.allFeedback.feeling,
+        understanding: this.props.allFeedback.understanding,
+        support: this.props.allFeedback.support,
+        comments: this.props.allFeedback.comments
+    }
 
     handleClick = () => {
+        //setup server then: POST info to server
+        axios.post('/feedback', this.state )
+        .then((result) => {
+            console.log('in client POST:', result);
+            
+        }).catch((error) => {
+            console.log('in client POST error:', error);
+            
+        })
         this.props.history.push('/submission')
     }
 
@@ -24,7 +39,7 @@ class Review extends Component {
                     <h3 className="reviewh3">Comments:</h3><span> {this.props.allFeedback.comments}</span><br />
                 </div>
                 <button onClick={this.handleClick}>SUBMIT REVIEW</button>
-                {/* {JSON.stringify(this.props.allFeedback)} */}
+                {JSON.stringify(this.state)}
             </div>
         )
     }
