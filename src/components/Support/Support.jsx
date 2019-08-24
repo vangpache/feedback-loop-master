@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import swal from 'sweetalert';
 
 
 class Support extends Component {
@@ -8,39 +9,17 @@ class Support extends Component {
         support: ''
     }
 
-
-
     handleRadio = (event) => {
-
-        if (event.target.value === '1') {
-            return this.setState({
-                support: event.target.value
-            })
-        } else if (event.target.value === '2') {
-            return this.setState({
-                support: event.target.value
-            })
-        } else if (event.target.value === '3') {
-            return this.setState({
-                support: event.target.value
-            })
-        } else if (event.target.value === '4') {
-            return this.setState({
-                support: event.target.value
-            })
-        } else if (event.target.value === '5') {
-            return this.setState({
-                support: event.target.value
-            });
-        } else {
-            alert('Please select a rating')
-        }
+        return this.setState({
+            support: event.target.value
+        })
     }
+
 
     handleClick = (event) => {
         event.preventDefault();
         if (this.state.support === '') {
-            alert('Please select a rating')
+            swal('Please select a rating!')
         } else {
             this.props.dispatch({
                 type: 'SET_SUPPORT',

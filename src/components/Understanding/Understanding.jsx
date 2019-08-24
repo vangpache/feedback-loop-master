@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import swal from 'sweetalert';
 
 
 class Understanding extends Component {
@@ -8,38 +9,20 @@ class Understanding extends Component {
     }
 
 
-
     handleRadio = (event) => {
-
-        if (event.target.value === '1') {
-            return this.setState({
-                understanding: event.target.value
-            })
-        } else if (event.target.value === '2') {
-            return this.setState({
-                understanding: event.target.value
-            })
-        } else if (event.target.value === '3') {
-            return this.setState({
-                understanding: event.target.value
-            })
-        } else if (event.target.value === '4') {
-            return this.setState({
-                understanding: event.target.value
-            })
-        } else if (event.target.value === '5') {
-            return this.setState({
-                understanding: event.target.value
-            });
-        } else {
-            alert('Please select a rating')
-        }
+        return this.setState({
+            understanding: event.target.value
+        })
     }
+
+
+
+
 
     handleClick = (event) => {
         event.preventDefault();
         if (this.state.understanding === '') {
-            alert('Please select a rating')
+            swal('Please select a rating!')
         } else {
             this.props.dispatch({
                 type: 'SET_UNDERSTANDING',

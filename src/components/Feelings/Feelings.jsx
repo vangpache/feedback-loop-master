@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import Understanding from '../Understanding/Understanding';
+import swal from 'sweetalert';
 
 
 class Feelings extends Component {
@@ -11,34 +11,15 @@ class Feelings extends Component {
 
 
     handleRadio = (event) => {
-        
-        if (event.target.value === '1') {
-            return this.setState({
-                feeling: event.target.value
-            })
-        } else if (event.target.value === '2') {
-            return this.setState({
-                feeling: event.target.value
-            })
-        } else if (event.target.value === '3') {
-            return this.setState({
-                feeling: event.target.value
-            })
-        } else if (event.target.value === '4') {
-            return this.setState({
-                feeling: event.target.value
-            })
-        } else if (event.target.value === '5') {
-            return this.setState({
-                feeling: event.target.value
-            });
-        }   
+        return this.setState ({
+            feeling: event.target.value
+        })
     }
 
     handleClick = (event) => {
         event.preventDefault();
         if(this.state.feeling === '') {
-            alert('Please select a rating')
+            swal('Please select a rating!')
         } else {
             this.props.dispatch({
                 type: 'SET_FEELING',
@@ -61,12 +42,12 @@ class Feelings extends Component {
                 <input onClick={this.handleRadio} className="radioBtn" type="radio" name="feeling" value="2"/> 2
                 <input onClick={this.handleRadio} className="radioBtn" type="radio" name="feeling" value="3" /> 3
                 <input onClick={this.handleRadio} className="radioBtn" type="radio" name="feeling" value="4" /> 4
-                <input onClick={this.handleRadio} className="radioBtn" type="radio" name="feeling" value="5" /> 5
+                <input onClick={this.handleRadio} className="radioBtn" type="radio" value="5" /> 5
                 <br />
                     <br />
                     <button>NEXT</button>
                 </form>
-                {JSON.stringify(this.state)}
+                {/* {JSON.stringify(this.state)} */}
                 
             </div>
         )

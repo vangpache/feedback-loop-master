@@ -34,10 +34,18 @@ const feedbackReducer = (state = feedback, action) => {
 }
 
 
+const getAllFeedBack = (state = [], action) => {
+    if(action.type === 'GET_FEEDBACK') {
+        return action.payload;
+    }
+    return state;
+}
+
 
 const store = createStore(
     combineReducers({
         feedbackReducer,
+        getAllFeedBack,
     }),
     applyMiddleware(logger)
 )

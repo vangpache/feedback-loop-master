@@ -22,6 +22,22 @@ router.post('/', (req, res) => {
 })
 
 
+//GET
+
+router.get('/', (req, res) => {
+    let queryText = `SELECT * FROM feedback ORDER BY "id" desc`
+    
+    pool.query(queryText)
+    .then((result) => {
+        console.log('in GET:', result);
+        res.send(result.rows);
+        
+    }).catch((error) => {
+        console.log('in GET error:', error);
+        res.sendStatus(500);
+        
+    })
+})
 
 
 
